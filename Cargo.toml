@@ -7,6 +7,12 @@ license = "MIT"
 homepage = "https://github.com/BeLeap/aws-profile-switcher"
 repository = "https://github.com/BeLeap/aws-profile-switcher"
 
+[profile.release]
+strip = true  # Automatically strip symbols from the binary.
+opt-level = "z"  # Optimize for size.
+lto = true
+panic = "abort"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
