@@ -7,6 +7,9 @@ use fuzzy_finder::item::Item;
 struct Args {
     #[clap(short, long, value_parser, default_value = "~/.aws/config")]
     aws_config: String,
+
+    #[clap(value_parser)]
+    commands: Vec<String>,
 }
 
 fn main() {
@@ -34,6 +37,11 @@ fn main() {
     };
     std::env::set_var("AWS_PROFILE", profile_env);
 
-    let prof = std::env::var("AWS_PROFILE").unwrap();
-    println!("//{}", prof);
+    let sub_command = args.commands.join(" ");
+    let mut child = std::process::Command::new("bash")
+        .args(["-c", &sub_command])
+        .spawn()
+        .unwrap();
+
+    child.wait().unwrap();
 }
