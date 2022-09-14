@@ -4,6 +4,8 @@ version = "0.1.0"
 edition = "2021"
 description = "AWS_PROFILE switcher"
 license = "MIT"
+homepage = "https://github.com/BeLeap/aws-profile-switcher"
+repository = "https://github.com/BeLeap/aws-profile-switcher"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
