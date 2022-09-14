@@ -10,13 +10,13 @@ apes terraform plan
 
 ## How to install
 
-### Homebrew
+### Using Homebrew
 
 ```
 brew install beleap/tap/aws-profile-switcher
 ```
 
-### Cargo
+### Using Cargo
 
 ```
 cargo install aws-profile-switcher
