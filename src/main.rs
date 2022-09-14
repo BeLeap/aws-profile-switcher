@@ -1,11 +1,20 @@
 use std::fs;
 
+use clap::Parser;
 use fuzzy_finder::item::Item;
 
+#[derive(Parser, Debug)]
+struct Args {
+    #[clap(short, long, value_parser, default_value = "~/.aws/config")]
+    aws_config: String,
+}
 
 fn main() {
-    let home_dir = home::home_dir().unwrap();
-    let aws_config_content = fs::read_to_string(format!("{}/.aws/config", home_dir.into_os_string().into_string().unwrap())).unwrap();
+    let args = Args::parse();
+
+    let expanded_path = shellexpand::full(&args.aws_config).unwrap().into_owned();
+    let aws_config_path = std::path::Path::new(&expanded_path);
+    let aws_config_content = fs::read_to_string(aws_config_path).unwrap();
 
     let profiles: Vec<Item<&str>> = aws_config_content.lines().fold(vec![], |acc, line| {
         if line.starts_with("[") && line.ends_with("]") {
