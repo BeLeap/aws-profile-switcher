@@ -19,5 +19,12 @@ fn main() {
 
     let result = fuzzy_finder::FuzzyFinder::find(profiles, profile_count.try_into().unwrap()).unwrap().unwrap();
 
-    println!("{}", result);
+    let profile_env = match result {
+        "default" => "",
+        _ => result,
+    };
+    std::env::set_var("AWS_PROFILE", profile_env);
+
+    let prof = std::env::var("AWS_PROFILE").unwrap();
+    println!("//{}", prof);
 }
