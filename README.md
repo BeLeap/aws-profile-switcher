@@ -8,7 +8,7 @@ https://user-images.githubusercontent.com/46488521/190147175-ddcc6665-0f79-43e1-
 ## How to Use
 
 ```
-apes terraform plan
+apes <your-command>
 ```
 
 ## How to install
