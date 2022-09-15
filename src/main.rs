@@ -5,7 +5,7 @@ use fuzzy_finder::item::Item;
 
 #[derive(Parser, Debug)]
 struct Args {
-    #[clap(short, long, value_parser, default_value = "~/.aws/config")]
+    #[clap(short, long, value_parser, default_value = "~/.aws/credentials")]
     aws_config: String,
 
     #[clap(value_parser)]
@@ -21,7 +21,7 @@ fn main() {
 
     let profiles: Vec<Item<&str>> = aws_config_content.lines().fold(vec![], |acc, line| {
         if line.starts_with("[") && line.ends_with("]") {
-            let profile_name = line.trim_start_matches("[").trim_start_matches("profile ").trim_end_matches("]");
+            let profile_name = line.trim_start_matches("[").trim_end_matches("]");
             [acc, vec![Item::new(profile_name.to_string(), profile_name)]].concat()
         } else {
             acc
