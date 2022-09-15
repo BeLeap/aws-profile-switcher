@@ -1,4 +1,6 @@
 use std::fs;
+use std::io::Write;
+use std::convert::TryInto;
 
 use clap::Parser;
 use fuzzy_finder::item::Item;
@@ -29,13 +31,31 @@ fn main() {
     });
     let profile_count = profiles.len();
 
-    let result = fuzzy_finder::FuzzyFinder::find(profiles, profile_count.try_into().unwrap()).unwrap().unwrap();
-
-    let profile_env = match result {
-        "default" => "",
-        _ => result,
+    let find_result = match fuzzy_finder::FuzzyFinder::find(profiles, profile_count.try_into().unwrap()) {
+        Ok(result) => result,
+        Err(e) => {
+            std::io::stdout().flush().unwrap();
+            panic!("Failed to find result: {}", e);
+        }
     };
-    std::env::set_var("AWS_PROFILE", profile_env);
+    let profile = match find_result {
+        Some(result) => result,
+        None => {
+            panic!("Invalid result");
+        }
+    };
+    println!();
+
+    std::env::set_var("AWS_PROFILE", profile);
+
+    let notify_string = format!("using AWS_PROFILE: {}", profile);
+    let divider = String::from_utf8(vec![b'='; notify_string.len()]).unwrap();
+    print!("\x1b[1;33m");
+    println!("{}", divider);
+    println!("{}", notify_string);
+    println!("{}", divider);
+    print!("\x1b[0m");
+    std::io::stdout().flush().unwrap();
 
     let sub_command = args.commands.join(" ");
     let mut child = std::process::Command::new("bash")
