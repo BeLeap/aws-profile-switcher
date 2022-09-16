@@ -15,8 +15,16 @@ apes <your-command>
 
 ### Using Homebrew
 
+#### Released Version
+
 ```
 brew install beleap/tap/aws-profile-switcher
+```
+
+#### Head
+
+```
+brew install --head beleap/tap/aws-profile-switcher
 ```
 
 ### Using Cargo
