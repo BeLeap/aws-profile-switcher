@@ -17,5 +17,6 @@ panic = "abort"
 
 [dependencies]
 clap = { version = "3.2.21", features = ["derive"] }
-fuzzy_finder = "0.1.2"
+# Temporrary fix until pr merged.
+fuzzy_finder = { git = "https://github.com/beleap/fuzzy_finder", branch="fix/out-of-index" }
 shellexpand = "2.1.2"
