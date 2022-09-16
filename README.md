@@ -21,6 +21,16 @@ brew install beleap/tap/aws-profile-switcher
 
 ### Using Cargo
 
+#### Released Version
+
 ```
 cargo install aws-profile-switcher
+```
+
+#### Head
+
+```
+git clone https://github.com/BeLeap/aws-profile-switcher.git
+cd aws-profile-switcher
+cargo install --path ./
 ```
