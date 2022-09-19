@@ -56,7 +56,13 @@ fn main() {
     println!("{}", notify_string);
     println!("{}", divider);
     print!("\x1b[0m");
+
+    println!("");
+    println!("Press Enter twice to continue.");
     std::io::stdout().flush().unwrap();
+
+    let mut input = String::new();
+    std::io::stdin().read_line(&mut input).unwrap();
 
     let shell = match std::env::var("SHELL") {
         Ok(shell) => shell,
