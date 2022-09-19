@@ -58,8 +58,12 @@ fn main() {
     print!("\x1b[0m");
     std::io::stdout().flush().unwrap();
 
+    let shell = match std::env::var("SHELL") {
+        Ok(shell) => shell,
+        Err(_) => "bash".to_string(),
+    };
     let sub_command = args.commands.join(" ");
-    let mut child = std::process::Command::new("bash")
+    let mut child = std::process::Command::new(shell)
         .args(["-c", &sub_command])
         .spawn()
         .unwrap();

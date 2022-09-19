@@ -17,6 +17,5 @@ panic = "abort"
 
 [dependencies]
 clap = { version = "3.2.21", features = ["derive"] }
-# Temporrary fix until pr merged.
 fuzzy_finder = "0.3.0"
 shellexpand = "2.1.2"
