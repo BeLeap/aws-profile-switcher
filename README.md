@@ -42,3 +42,7 @@ git clone https://github.com/BeLeap/aws-profile-switcher.git
 cd aws-profile-switcher
 cargo install --path ./
 ```
+
+# Credits
+
+- [fuzzy_finder](https://github.com/jamescoleuk/fuzzy_finder) for find profile between multiple aws profiles.
