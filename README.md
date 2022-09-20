@@ -45,4 +45,4 @@ cargo install --path ./
 
 # Credits
 
-- [fuzzy_finder](https://github.com/jamescoleuk/fuzzy_finder) for find profile between multiple aws profiles.
+- [fuzzy_finder](https://github.com/jamescoleuk/fuzzy_finder) for finding profile between multiple aws profiles.
