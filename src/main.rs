@@ -8,10 +8,10 @@ use fuzzy_finder::item::Item;
 #[derive(Parser, Debug)]
 #[clap(version, about)]
 struct Args {
-    #[clap(short, long, value_parser, default_value = "~/.aws/credentials")]
+    #[clap(short, long, default_value = "~/.aws/credentials")]
     aws_config: String,
 
-    #[clap(value_parser)]
+    #[clap()]
     commands: Vec<String>,
 }
 
