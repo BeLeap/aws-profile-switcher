@@ -32,7 +32,7 @@ brew install --head beleap/tap/aws-profile-switcher
 #### Released Version
 
 ```
-cargo install aws-profile-switcher
+cargo install apes
 ```
 
 #### Head
