@@ -17,5 +17,5 @@ panic = "abort"
 
 [dependencies]
 clap = { version = "4.0.12", features = ["derive"] }
-fuzzy_finder = "0.3.0"
+fuzzy_finder = "0.3.2"
 shellexpand = "2.1.2"

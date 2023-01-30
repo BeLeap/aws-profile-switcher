@@ -10,7 +10,7 @@ checksum = "98161a4e3e2184da77bb14f02184cdd111e83bbbcc9979dfee3c44b9a85f5602"
 
 [[package]]
 name = "apes"
-version = "0.1.6"
+version = "0.1.7"
 dependencies = [
  "clap",
  "fuzzy_finder",
@@ -142,9 +142,9 @@ dependencies = [
 
 [[package]]
 name = "fuzzy_finder"
-version = "0.3.0"
+version = "0.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3595ce8148852ebe0503526e8e020b54064134a47b22464d981bf475796b7794"
+checksum = "d1cfdbbb717be5ad3b7b2e2f3d5b2fa654563f0df3da7d8028eb1de30c3a6caf"
 dependencies = [
  "anyhow",
  "csv",
